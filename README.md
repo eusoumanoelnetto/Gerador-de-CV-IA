@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Banner Gerador de Currículos com IA" style="max-width: 100%; height: auto;">
+</p>
+
 # 🧐 Gerador de Currículos com IA
 
 Crie currículos profissionais em **segundos**!  
