@@ -13,7 +13,7 @@ Este projeto utiliza **Inteligência Artificial** para transformar textos, dados
 
 | Interface Web | Currículo Gerado |
 |:-------------:|:----------------:|
-| ![Web UI](https://via.placeholder.com/250x150?text=Web+UI) | ![PDF CV](https://via.placeholder.com/250x150?text=PDF+CV) |
+| <img src="assets/web.png" alt="Web UI" width="250"/> | <img src="assets/pdf.png" alt="PDF CV" width="250"/> |
 
 ---
 
