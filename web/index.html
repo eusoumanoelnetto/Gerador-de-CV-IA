@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Currículo IA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <img src="assets/bot.png" alt="Bot">
+        <h2>Gerador de Currículo IA</h2>
+    </div>
+    <div id="chat" class="chat-window"></div>
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Digite aqui..." autofocus>
+        <button onclick="handleUserInput()">Enviar</button>
+    </div>
+</div>
+
+<div class="preview-container" id="preview-container" style="display: none;">
+    <h2>Preview do Currículo</h2>
+    <div id="curriculo-preview" class="curriculo-card"></div>
+    <button onclick="baixarPDF()">📄 Baixar PDF</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
