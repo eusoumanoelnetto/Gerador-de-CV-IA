@@ -1,107 +1,167 @@
-<p align="center">
-  <img src="assets/banner.png" alt="Banner Gerador de Currículos com IA" style="max-width: 100%; height: auto;">
-</p>
+# 🧠 Gerador de Currículo IA - Chatbot + Preview + PDF + Python
 
-# 🧐 Gerador de Currículos com IA
+Crie currículos profissionais em **segundos**, de forma divertida, intuitiva e acessível!
+O usuário escolhe entre:
 
-Crie currículos profissionais em **segundos**!  
-Este projeto utiliza **Inteligência Artificial** para transformar textos, dados ou respostas simples em um currículo PDF elegante, pronto para uso.
+* ✅ **Via Web (Chatbot no navegador)**
+* ✅ **Via Python (Terminal interativo)**
+
+O processo é o mesmo: você responde perguntas, vê uma **preview fiel ao modelo profissional** e pode baixar seu PDF com design responsivo.
+
+---
+
+## 🚀 Funcionalidades
+
+* 🤖 Chatbot interativo no navegador
+* 🐍 Script Python interativo no terminal
+* 📄 Preview do currículo **100% igual ao modelo original (preview\.html)**
+* 🖼️ Design profissional, responsivo e elegante
+* 📥 Download do currículo em PDF diretamente no navegador ou no terminal (via Python)
+* 🌐 **Rodando na Web (GitHub Pages)** ou **localmente via Python**
 
 ---
 
 ## 📸 Preview Visual
 
-| Interface Web | Currículo Gerado |
-|:-------------:|:----------------:|
-| <img src="assets/web.png" alt="Web UI" width="250"/> | <img src="assets/pdf.png" alt="PDF CV" width="250"/> |
+| 💬 Chatbot Web                        | 📄 Preview do Currículo                      |
+| ------------------------------------- | -------------------------------------------- |
+| ![Chatbot](./assets/chat-preview.png) | ![Curriculo](./assets/curriculo-preview.png) |
 
 ---
 
-## 📄 Sobre o Projeto
+## 🏗️ Tecnologias Usadas
 
-O **Gerador de Currículos com IA** permite que qualquer pessoa crie rapidamente um currículo estilizado, apenas fornecendo seus dados, um texto descritivo ou respostas simples.
-
-### 🔥 Funcionalidades
-
-- ✅ Geração automática de currículos em PDF
-- ✅ Layout profissional, limpo e responsivo
-- ✅ Entrada via texto livre ou formulário manual
-- ✅ Preenchimento inteligente com IA (OpenAI GPT)
-- ✅ Download instantâneo do currículo (HTML → PDF) no navegador
-- ✅ **Linhas divisórias pretas no PDF** para separar seções de forma elegante
-- ✅ 100% web: sem necessidade de servidor ou backend
+* HTML5 + CSS3 (W3.CSS)
+* JavaScript puro
+* Python + Playwright (para gerar PDF localmente)
+* html2pdf.js (para gerar PDF via navegador)
+* LocalStorage (armazenamento no navegador)
+* Hospedagem no **GitHub Pages**
 
 ---
 
-## 🚀 Em Desenvolvimento
+## 📂 Estrutura do Projeto
 
-💬 **Integração com Telegram e WhatsApp**  
-Em breve, será possível gerar seu currículo apenas enviando uma mensagem no WhatsApp ou Telegram!
-
-**Exemplo:**
-> *"Olá, quero gerar meu currículo."*  
-> A IA coleta seus dados e devolve o PDF diretamente no chat. ✔️
-
----
-
-## 🏗️ Tecnologias Utilizadas
-
-- 💻 **Front-End:** HTML, CSS, W3.CSS
-- ⚙️ **Geração de PDF:** html2pdf.js (JavaScript puro)
-- 🧠 **Inteligência Artificial:** OpenAI GPT (organização e distribuição dos dados)
-- 🔗 **Futuro:** Integração com APIs do WhatsApp Business e Telegram Bot
+```bash
+/web
+|-- index.html         # Chatbot Web
+|-- preview.html       # Preview fiel ao modelo (Currículo)
+|-- css/
+|   |-- style.css      # Estilos do projeto
+|-- js/
+|   |-- script.js      # Lógica do Chatbot e PDF
+|-- assets/            # Imagens, avatar, logos
+|-- api-python/        # Versão em Python
+|   |-- atualizar_curriculo.py
+|-- README.md
+```
 
 ---
 
-## 🛠️ Como Rodar Localmente
+## 🛠️ Como Rodar
 
-1. Clone este repositório:
-    ```bash
-    git clone https://github.com/seu-usuario/gerador-curriculos-ia.git
-    ```
-2. Abra o arquivo `index.html` no navegador.
-3. Preencha os dados no formulário ou insira um texto livre.
-4. Clique em **"Baixar PDF"** para gerar seu currículo instantaneamente.
+### 🔗 **Via Web (GitHub Pages)**
+
+1. Clone ou faça fork do repositório:
+
+```bash
+git clone https://github.com/seu-usuario/gerador-curriculo-ia.git
+```
+
+2. Entre na pasta `/web`
+3. No GitHub, ative o **GitHub Pages** na branch principal, pasta `/web`
+4. Acesse o link gerado:
+
+```
+https://seu-usuario.github.io/gerador-curriculo-ia/web/
+```
+
+5. Pronto! 🎉
+
+### 🐍 **Via Python (Local)**
+
+### 🚩 Dependências necessárias:
+
+* Python 3.x instalado
+* Dependências Python:
+
+```bash
+pip install playwright instaloader requests
+```
+
+* Inicialize o Playwright:
+
+```bash
+playwright install
+```
+
+### 🚀 Executando:
+
+1. Navegue até a pasta `api-python`
+
+```bash
+cd api-python
+```
+
+2. Execute o script:
+
+```bash
+python atualizar_curriculo.py
+```
+
+3. Responda às perguntas no terminal (nome, cargo, email, telefone, foto, experiências, formações, habilidades)
+4. O script gera automaticamente `preview.html` e `curriculo.pdf`
+5. Você pode abrir o `preview.html` no navegador para ver exatamente como ficará o PDF, e o PDF estará salvo localmente.
 
 ---
 
-## 🎯 Demonstração
+## 💾 Como Usar
 
-👉 [Acesse a Demo Online](https://seu-link-aqui.com)
+✔️ Escolha sua opção:
 
----
+* **Via Web:**
 
-## 💡 Próximos Passos
+  1. Acesse o Chatbot (`index.html`)
+  2. Responda as perguntas (nome, cargo, experiências, formação, habilidades...)
+  3. Veja a **Preview** (abre em `preview.html`) **idêntica ao modelo**
+  4. Clique em **"Baixar PDF"** para gerar seu currículo com o layout profissional
 
-- [ ] Integração com WhatsApp e Telegram
-- [ ] Templates de currículos personalizáveis
-- [ ] Suporte multilíngue
-- [ ] Exportação para outros formatos (DOCX, JSON)
+* **Via Python:**
 
----
-
-## 🧠 Desenvolvido por
-
-**Manoel Neto**  
-🌟 IA Agent | Software Engineer | Cybersecurity Student  
-🚀 [GitHub](https://github.com/eusoumanoelnetto)  
-💼 [LinkedIn](https://www.linkedin.com/in/eusoumanoelnetto)
+  1. Rode o script `atualizar_curriculo.py` (na pasta `/api-python`)
+  2. Responda as perguntas no terminal
+  3. O script gera automaticamente `preview.html` e `curriculo.pdf`
+  4. Abra o preview no navegador e/ou baixe seu PDF prontinho
 
 ---
 
-## ⚖️ Licença
+## 🔥 Features Extras Planejadas
 
-Distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
----
-
-## 🔥 Pitch Final
-
-> Este não é apenas um gerador de currículos. É uma ferramenta de transformação digital, acessível, intuitiva e moderna, que em breve estará disponível diretamente nos seus apps favoritos como WhatsApp e Telegram.  
-> **Simples. Inteligente. Poderoso.**
+* Integração via WhatsApp
+* Integração via Telegram
+* API em Flask ou Node.js
 
 ---
 
-## 📢 Contribuições
+## 🌟 Desenvolvido por
 
-Contribuições são bem-vindas! Se você tem uma ideia, correção ou melhoria, abra uma *issue* ou envie um *pull request*.
+**Manoel Coelho**
+[GitHub](https://github.com/eusoumanoelnetto) | [LinkedIn](https://www.linkedin.com/in/eusoumanoelnetto) | [Instagram](https://www.instagram.com/eusoumanoelnetto)
+
+> "Manoel Coelho idealizou, Copilot e ChatGPT ajudaram a dar vida."
+
+---
+
+## 📄 Licença
+
+[MIT](./LICENSE)
+
+---
+
+## 🚀 Deploy Link
+
+**Acesse Aqui:**
+
+```bash
+https://eusoumanoelnetto.github.io/gerador-curriculo-ia/web/
+```
