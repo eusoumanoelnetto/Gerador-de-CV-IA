@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner-curriculo-ia.png" alt="Banner Gerador de Currículo IA" style="max-width:100%; border-radius: 12px;">
+  <img src="assets/banner.png" alt="Banner Gerador de Currículo IA" style="max-width:100%; border-radius: 12px;">
 </p>
 
 # 🧠 Gerador de Currículo IA - Chatbot + Preview + PDF + Python
@@ -29,7 +29,7 @@ O processo é o mesmo: você responde perguntas, vê uma **preview fiel ao model
 
 | 💬 Chatbot Web                        | 📄 Preview do Currículo                      |
 | ------------------------------------- | -------------------------------------------- |
-| ![Chatbot](./assets/chatbot.png) | ![Curriculo](./assets/pdf.png) |
+| ![Chatbot](assets/chatbot.png) | ![Curriculo](assets/pdf.png) |
 
 ---
 
