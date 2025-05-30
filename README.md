@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner-curriculo-ia.png" alt="Banner Gerador de Currículo IA" style="max-width:100%; border-radius: 12px;">
+</p>
+
 # 🧠 Gerador de Currículo IA - Chatbot + Preview + PDF + Python
 
 Crie currículos profissionais em **segundos**, de forma divertida, intuitiva e acessível!
