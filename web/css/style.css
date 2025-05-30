@@ -1,6 +1,6 @@
 body {
-    background: #0f2027;
-    color: white;
+    background: #ece8da;
+    color: #222;
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     gap: 20px;
@@ -10,58 +10,108 @@ body {
 
 /* Chatbot */
 .chat-container {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
+    background: #fffbe6;
+    border-radius: 24px;
     width: 350px;
     height: 600px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
+    border: 1.5px solid #f0e8c7;
 }
 
 .chat-header {
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 15px;
+    background: #fdfdfd;
+    color: #222;
+    padding: 18px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom: 1px solid #f5eccd;
 }
 
 .chat-window {
     flex: 1;
-    padding: 10px;
+    padding: 20px 10px 0 10px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: transparent;
 }
 
 .message {
-    max-width: 75%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 20px;
+    max-width: 80%;
+    padding: 13px 18px;
+    margin: 0 0 6px 0;
+    border-radius: 20px 20px 20px 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px 0 rgba(220, 208, 160, 0.09);
 }
 
-.bot { background: rgba(255,255,255,0.2); color: white; }
-.user { background: #00c3ff; color: black; align-self: flex-end; }
+.bot {
+    background: #fffbe6;
+    color: #222;
+    align-self: flex-start;
+    border-radius: 20px 20px 20px 8px;
+    border: 1px solid #f2e6bb;
+}
+
+.user {
+    background: #d6e7e3;
+    color: #222;
+    align-self: flex-end;
+    border-radius: 20px 20px 8px 20px;
+    border: 1px solid #b9d4ce;
+}
 
 .input-area {
     display: flex;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #f5eccd;
+    background: #fffbe6;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 12px;
 }
 
 .input-area input {
     flex: 1;
-    padding: 15px;
+    padding: 11px 15px;
     border: none;
-    background: transparent;
-    color: white;
+    border-radius: 8px;
+    background: #fff;
+    color: #222;
+    font-size: 1rem;
+    outline: none;
+    margin-right: 10px;
+    border: 1px solid #f0e8c7;
 }
 
 .input-area button {
-    background: #00c3ff;
+    background: #d6e7e3;
     border: none;
-    padding: 15px;
-    color: black;
+    padding: 11px 18px;
+    color: #222;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.input-area button:hover {
+    background: #b9d4ce;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #f9f7ec;
+}
+::-webkit-scrollbar-thumb {
+    background: #f0e8c7;
+    border-radius: 6px;
 }
 
 /* Currículo */
@@ -104,4 +154,88 @@ body {
 
 ul {
     padding-left: 20px;
+}
+
+.avatar-bubble {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    vertical-align: middle;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(230, 218, 147, 0.10);
+}
+
+.user-avatar {
+    margin-left: 10px;
+    margin-right: 0;
+    background: #e2f7f0;
+}
+
+.message.bot {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.message.user {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+/* Chatbot bolhas e avatares SVG estilo moderno */
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.bot-msg-row {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.user-msg-row {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+.bubble {
+    max-width: 70vw;
+    padding: 13px 18px;
+    border-radius: 20px 20px 20px 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px 0 rgba(220, 208, 160, 0.09);
+    background: #fffbe6;
+    color: #222;
+    border: 1px solid #f2e6bb;
+    word-break: break-word;
+}
+
+.bot-bubble {
+    background: #fffbe6;
+    color: #222;
+    border-radius: 20px 20px 20px 8px;
+    border: 1px solid #f2e6bb;
+}
+
+.user-bubble {
+    background: #d6e7e3;
+    color: #222;
+    border-radius: 20px 20px 8px 20px;
+    border: 1px solid #b9d4ce;
 }
