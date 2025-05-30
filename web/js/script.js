@@ -3,23 +3,21 @@ const userInput = document.getElementById('userInput');
 const previewContainer = document.getElementById('preview-container');
 const curriculoPreview = document.getElementById('curriculo-preview');
 
-let curriculo = {
-    nome: '',
-    cargo: '',
-    email: '',
-    telefone: '',
+let dados = {
+    nome: "",
+    cargo: "",
+    email: "",
+    telefone: "",
+    hardSkills: "",
+    softSkills: "",
+    idiomas: "",
     experiencias: [],
-    formacoes: [],
-    hard: '',
-    soft: '',
-    idiomas: ''
+    formacoes: []
 };
 
 let etapa = 0;
 
-window.onload = () => {
-    botMessage("Olá! Vamos criar seu currículo. Qual seu nome completo?");
-};
+window.onload = () => botMessage("Olá! Vamos criar seu currículo. Qual seu nome completo?");
 
 function handleUserInput() {
     const input = userInput.value.trim();
@@ -52,28 +50,28 @@ function addMessage(message, sender) {
 function processInput(input) {
     switch(etapa) {
         case 0:
-            curriculo.nome = input;
+            dados.nome = input;
             botMessage("Perfeito! Qual seu cargo?");
             etapa++;
             break;
         case 1:
-            curriculo.cargo = input;
+            dados.cargo = input;
             botMessage("Digite seu e-mail:");
             etapa++;
             break;
         case 2:
-            curriculo.email = input;
+            dados.email = input;
             botMessage("Digite seu telefone:");
             etapa++;
             break;
         case 3:
-            curriculo.telefone = input;
-            botMessage("Agora me fale sua primeira experiência (Cargo, Empresa, Período, Descrição):");
+            dados.telefone = input;
+            botMessage("Primeira experiência (Cargo, Empresa, Período, Descrição):");
             etapa++;
             break;
         case 4:
-            curriculo.experiencias.push(input);
-            botMessage("Quer adicionar mais uma experiência? (sim/não)");
+            dados.experiencias.push(input);
+            botMessage("Adicionar outra experiência? (sim/não)");
             etapa++;
             break;
         case 5:
@@ -81,13 +79,13 @@ function processInput(input) {
                 etapa = 4;
                 botMessage("Ok, me fale a experiência:");
             } else {
-                botMessage("Agora sua formação (Curso, Instituição, Período):");
+                botMessage("Primeira formação (Curso, Instituição, Período):");
                 etapa++;
             }
             break;
         case 6:
-            curriculo.formacoes.push(input);
-            botMessage("Quer adicionar mais uma formação? (sim/não)");
+            dados.formacoes.push(input);
+            botMessage("Adicionar outra formação? (sim/não)");
             etapa++;
             break;
         case 7:
@@ -100,17 +98,17 @@ function processInput(input) {
             }
             break;
         case 8:
-            curriculo.hard = input;
+            dados.hardSkills = input;
             botMessage("Agora suas soft skills (separadas por vírgula):");
             etapa++;
             break;
         case 9:
-            curriculo.soft = input;
+            dados.softSkills = input;
             botMessage("Quais idiomas você fala? (separados por vírgula):");
             etapa++;
             break;
         case 10:
-            curriculo.idiomas = input;
+            dados.idiomas = input;
             botMessage("Perfeito! Gerando preview do seu currículo...");
             setTimeout(() => {
                 gerarPreview();
@@ -121,28 +119,79 @@ function processInput(input) {
 
 function gerarPreview() {
     previewContainer.style.display = 'block';
-    curriculoPreview.innerHTML = `
-        <h1>Currículo ${curriculo.nome}</h1>
-        <p><b>Cargo:</b> ${curriculo.cargo}</p>
-        <p><b>Email:</b> ${curriculo.email}</p>
-        <p><b>Telefone:</b> ${curriculo.telefone}</p>
-        <h2>Experiências</h2>
-        <ul>${curriculo.experiencias.map(e => `<li>${e}</li>`).join('')}</ul>
-        <h2>Formação</h2>
-        <ul>${curriculo.formacoes.map(f => `<li>${f}</li>`).join('')}</ul>
-        <h2>Habilidades</h2>
-        <p><b>Hard Skills:</b> ${curriculo.hard}</p>
-        <p><b>Soft Skills:</b> ${curriculo.soft}</p>
-        <p><b>Idiomas:</b> ${curriculo.idiomas}</p>
-    `;
+
+    document.getElementById('nome-placeholder').innerText = dados.nome;
+    document.getElementById('nome-placeholder2').innerText = dados.nome;
+    document.getElementById('cargo-placeholder').innerText = dados.cargo;
+    document.getElementById('email-placeholder').innerText = dados.email;
+    document.getElementById('telefone-placeholder').innerText = dados.telefone;
+    document.getElementById('hard-placeholder').innerText = dados.hardSkills;
+    document.getElementById('soft-placeholder').innerText = dados.softSkills;
+    document.getElementById('idiomas-placeholder').innerText = dados.idiomas;
+
+    document.getElementById('exp-placeholder').innerHTML = dados.experiencias.map(e => `<li>${e}</li>`).join('');
+    document.getElementById('form-placeholder').innerHTML = dados.formacoes.map(f => `<li>${f}</li>`).join('');
 }
 
 function baixarPDF() {
-    const opt = {
+    const element = document.querySelector('.curriculo');
+    html2pdf().from(element).set({
         margin: 0.5,
-        filename: `curriculo-${curriculo.nome}.pdf`,
+        filename: `curriculo-${dados.nome}.pdf`,
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-    html2pdf().from(curriculoPreview).set(opt).save();
+    }).save();
 }
+/**
+ * Ajusta o preenchimento dos placeholders para usar arrays e formatação igual ao exemplo Python.
+ */
+function preencherPlaceholders() {
+    document.getElementById('nome-placeholder').innerText = dados.nome;
+    document.getElementById('nome-placeholder2').innerText = dados.nome;
+    document.getElementById('cargo-placeholder').innerText = dados.cargo;
+    document.getElementById('email-placeholder').innerText = dados.email;
+    document.getElementById('telefone-placeholder').innerText = dados.telefone;
+
+    // Garante que hardSkills, softSkills e idiomas sejam arrays
+    const hardSkills = Array.isArray(dados.hardSkills) ? dados.hardSkills : dados.hardSkills.split(',').map(s => s.trim()).filter(Boolean);
+    const softSkills = Array.isArray(dados.softSkills) ? dados.softSkills : dados.softSkills.split(',').map(s => s.trim()).filter(Boolean);
+    const idiomas = Array.isArray(dados.idiomas) ? dados.idiomas : dados.idiomas.split(',').map(s => s.trim()).filter(Boolean);
+
+    document.getElementById('hard-placeholder').innerText = hardSkills.join(', ');
+    document.getElementById('soft-placeholder').innerText = softSkills.join(', ');
+    document.getElementById('idiomas-placeholder').innerText = idiomas.join(', ');
+
+    document.getElementById('exp-placeholder').innerHTML = dados.experiencias.map(exp => `
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>${exp}</b></h5>
+        <hr>
+      </div>
+    `).join('');
+
+    document.getElementById('form-placeholder').innerHTML = dados.formacoes.map(form => `
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>${form}</b></h5>
+        <hr>
+      </div>
+    `).join('');
+}
+
+// Chame preencherPlaceholders dentro de gerarPreview
+const originalGerarPreview = gerarPreview;
+gerarPreview = function() {
+    previewContainer.style.display = 'block';
+    preencherPlaceholders();
+};
+
+function abrirPreview(dados) {
+    localStorage.setItem('dadosCurriculo', JSON.stringify(dados));
+    window.open('preview.html', '_blank');
+}
+
+// Exemplo de chamada ao finalizar a coleta dos dados no chatbot:
+// const dados = {
+//     nome: "Manoel Neto",
+//     cargo: "IA Agent | Software Engineer | Cybersecurity Student",
+//     email: "manoelccoelho@gmail.com",
+//     telefone: "+55 00 00000-0000",
+//     hardSkills: ["IA Generativa", "Python", "Git", "AWS", "Azure"],

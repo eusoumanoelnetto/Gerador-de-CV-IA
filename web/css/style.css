@@ -1,42 +1,31 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
-    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    background: #0f2027;
+    color: white;
     font-family: 'Segoe UI', sans-serif;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
     gap: 20px;
-    min-height: 100vh;
+    padding: 20px;
+    justify-content: flex-start;
 }
 
+/* Chatbot */
 .chat-container {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    width: 400px;
+    width: 350px;
     height: 600px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .chat-header {
-    background: rgba(0,0,0,0.7);
-    color: white;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     padding: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.chat-header img {
-    width: 40px;
 }
 
 .chat-window {
@@ -47,23 +36,13 @@ body {
 
 .message {
     max-width: 75%;
-    padding: 10px 15px;
+    padding: 10px;
     margin: 8px 0;
     border-radius: 20px;
-    line-height: 1.4;
 }
 
-.bot {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    align-self: flex-start;
-}
-
-.user {
-    background: #00c3ff;
-    color: black;
-    align-self: flex-end;
-}
+.bot { background: rgba(255,255,255,0.2); color: white; }
+.user { background: #00c3ff; color: black; align-self: flex-end; }
 
 .input-area {
     display: flex;
@@ -76,53 +55,53 @@ body {
     border: none;
     background: transparent;
     color: white;
-    outline: none;
 }
 
 .input-area button {
     background: #00c3ff;
     border: none;
-    padding: 15px 20px;
-    cursor: pointer;
+    padding: 15px;
     color: black;
 }
 
-.input-area button:hover {
-    background: #00a9d4;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.2);
-    border-radius: 10px;
-}
-
-/* Preview currículo */
-.preview-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+/* Currículo */
+.curriculo {
+    display: flex;
+    background: white;
+    color: black;
     border-radius: 15px;
-    padding: 20px;
-    color: white;
-    width: 500px;
+    overflow: hidden;
 }
 
-.curriculo-card {
-    background: rgba(0,0,0,0.4);
+.sidebar {
+    width: 30%;
+    background: #f7f7f7;
     padding: 20px;
-    border-radius: 10px;
-    line-height: 1.6;
+    text-align: center;
 }
 
-.curriculo-card h1, .curriculo-card h2 {
-    border-bottom: 1px solid white;
+.profile-img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 70%;
+    padding: 20px;
+}
+
+.content h1 {
+    border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
 }
 
-button {
-    margin-top: 10px;
-    cursor: pointer;
+.content h2 {
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
 }
