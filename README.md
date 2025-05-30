@@ -25,7 +25,7 @@ O processo é o mesmo: você responde perguntas, vê uma **preview fiel ao model
 
 | 💬 Chatbot Web                        | 📄 Preview do Currículo                      |
 | ------------------------------------- | -------------------------------------------- |
-| ![Chatbot](./assets/chat-preview.png) | ![Curriculo](./assets/curriculo-preview.png) |
+| ![Chatbot](./assets/chatbot.png) | ![Curriculo](./assets/pdf.png) |
 
 ---
 
